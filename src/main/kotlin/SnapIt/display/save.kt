@@ -3,6 +3,7 @@ package SnapIt.display
 import SnapIt.capture.loadSavedFolder
 import SnapIt.capture.resizeImage
 import SnapIt.capture.saveFolder
+import SnapIt.utils.copyImageToClipboard
 import java.awt.BorderLayout
 import java.awt.event.WindowAdapter
 import java.awt.event.WindowEvent
@@ -14,6 +15,7 @@ import javax.swing.*
 
 fun createWindow(capturedImage: BufferedImage) {
     val resizedImage = resizeImage(capturedImage, capturedImage.width, capturedImage.height)
+    copyImageToClipboard(resizedImage)
     val frame = JFrame("SnapIt")
     frame.defaultCloseOperation = JFrame.DO_NOTHING_ON_CLOSE
     frame.layout = BorderLayout()
